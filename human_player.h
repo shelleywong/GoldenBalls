@@ -5,12 +5,12 @@
 class HumanPlayer {
   public:
     HumanPlayer();
-    HumanPlayer( decision type, unsigned status )
-    decision getType() const;  
-    unsigned get_name() const;
+    playerType set_name() const;  
+    decision split_or_steal() const;
+    string get_name() const;
   private:
-    decision pdecision;
-    unsigned pstatus;
+    string pname;
+    enum Decision { steal, split }
 };
 #include "human_player.cpp"
 #endif
