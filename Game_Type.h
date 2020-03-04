@@ -3,20 +3,9 @@
     Github @subhed @Jayesh-sathe @gopalsingh112
     CSCI-630 
 */
+#include<iostream>
 
-class Game_Type
+enum class Game_Type
 {
-private:
-    /* data */
-public:
-    Game_Type(/* args */);
-    ~Game_Type();
+    single, dual  
 };
-
-Game_Type::Game_Type(/* args */)
-{
-}
-
-Game_Type::~Game_Type()
-{
-}
