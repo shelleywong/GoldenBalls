@@ -6,8 +6,8 @@ class HumanPlayer {
   public:
     HumanPlayer();
     HumanPlayer( decision type, unsigned status )
+    decision getType() const;  
     unsigned get_name() const;
-    decision SplitOrSteal() const;  
   private:
     decision pdecision;
     unsigned pstatus;
