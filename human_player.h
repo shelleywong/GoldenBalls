@@ -1,17 +1,16 @@
 // Register.h
-#include<string.h>
-
 #ifndef HPLAYER_H_
 #define HPLAYER_H_
 
 class HumanPlayer {
-  private:
-    string name;
-    enum decision {steal, split}
   public:
-    void set_name();
-    unsigned get_name();
-    decision SplitOrSteal();    
+    HumanPlayer();
+    HumanPlayer( decision type, unsigned status )
+    unsigned get_name() const;
+    decision SplitOrSteal() const;  
+  private:
+    decision pdecision;
+    unsigned pstatus;
 };
 #include "human_player.cpp"
 #endif
