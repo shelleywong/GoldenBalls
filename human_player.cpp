@@ -2,11 +2,15 @@
 #include human_player.h
 using namespace std;
 HumanPlayer::HumanPlayer() {
-  pdecision = undefined;
-  pstatus = 0;
+  pname = undefined;
 }
-HumanPlayer::HumanPlayer( decision type, unsigned status ) {
-  pdecision = type;
-  status = pstatus;
+//Determine the type of the player
+void HumanPlayer::set_name() const {
+   return pname;
 }
-unsigned HumanPlayer::get_
+unsigned HumanPlayer::split_or_steal() const {
+  pname = name;
+}
+string HumanPlayer::get_name() const {
+  return pname;
+}
