@@ -4,7 +4,9 @@ using namespace std;
 HumanPlayer::HumanPlayer() {
   pname = undefined;
 }
-//Determine the type of the player
+HumanPlayer::HumanPlayer(string name) {
+    name = undefined;
+}
 void HumanPlayer::set_name() const {
    return pname;
 }
