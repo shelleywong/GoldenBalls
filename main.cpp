@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include "Game_Type.h"
-#include "human_player.h"
+#include "Human_Player.h"
 #include "Computer_Player.h"
 #include "Records.h"
 
