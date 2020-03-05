@@ -2,9 +2,9 @@
 #ifndef HPLAYER_H_
 #define HPLAYER_H_
 
-class HumanPlayer {
+class Human_Player {
   public:
-    HumanPlayer();
+    Human_Player();
     void set_name() const;  
     Decision split_or_steal() const;
     string get_name() const;
