@@ -5,11 +5,11 @@
 class HumanPlayer {
   public:
     HumanPlayer();
-    playerType set_name() const;  
-    decision split_or_steal() const;
+    void set_name() const;  
+    Decision split_or_steal() const;
     string get_name() const;
   private:
-    string pname;
+    string _name;
     enum Decision { steal, split }
 };
 #include "human_player.cpp"
