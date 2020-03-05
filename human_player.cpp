@@ -12,5 +12,5 @@ Human_Player::Decision Human_Player::split_or_steal( Decision deal ) const {
     return deal;
 }
 string Human_Player::get_name() const {
-  return pname;
+  return _name;
 }
