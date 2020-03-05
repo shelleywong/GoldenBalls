@@ -19,7 +19,7 @@ Game_Type select_game_type()
     int G_Type;
     cin >> G_Type;
 
-    switch (G_Type)
+    label1 : switch (G_Type)
     {
     case 1:
         GT = Game_Type::single;
@@ -32,6 +32,7 @@ Game_Type select_game_type()
         break;
 
     default:
+        goto label1;
         break;
     }
 }
@@ -53,7 +54,7 @@ void show_menu()
     int G_Menu;
     cin >> G_Menu;
 
-    switch (G_Menu)
+    label : switch (G_Menu)
     {
     case 1:
         Game_Type GT = select_game_type();
@@ -64,8 +65,13 @@ void show_menu()
     case 2:
         show_records();
         break;
+    
+    case 3:
+        exit(0);
 
     default:
+        cout<<"You have entered an incorrect entry."<<endl; 
+        goto label;
         break;
     }
 }
