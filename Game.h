@@ -9,17 +9,17 @@
 
 #include "Game_Type.h"
 #include "Player.h"
-#include <list>
+#include <vector>
 
 class Game {
   public:
-    Player* Game(game_type Game_Type);  // set game type and players
+    void Game(game_type Game_Type);  // set game type, play game
 
   protected:
     Game();   // Game constructor
 
   private:
-    list<Player*> _players;   // list of players
+    vector<Player*> _players;   // list of players
 };
 
 #endif
