@@ -19,18 +19,21 @@ Game_Type select_game_type()
     int G_Type;
     cin >> G_Type;
 
-case 1:
-    GT = Game_Type::single;
-    return GT;
-    break;
+    switch (G_Type)
+    {
+    case 1:
+        GT = Game_Type::single;
+        return GT;
+        break;
 
-case 2:
-    GT = Game_Type::dual;
-    return GT;
-    break;
+    case 2:
+        GT = Game_Type::dual;
+        return GT;
+        break;
 
-default:
-    break;
+    default:
+        break;
+    }
 }
 
 void show_menu()
@@ -42,7 +45,10 @@ void show_menu()
     cout << "1. Press 1 to play the game" << endl
          << "2. Press 2 to see records" << endl;
 
-    switch (G_Type)
+    int G_Menu;
+    cin >> G_Menu;
+
+    switch (G_Menu)
     {
     case 1:
         Game_Type GT = select_game_type();
