@@ -36,10 +36,15 @@ Game_Type select_game_type()
     }
 }
 
+void show_records()
+{
+    Records display = Records::instance();
+    display.show_records();
+}
+
 void show_menu()
 {
 
-    Records RD;
     Game GM;
 
     cout << "1. Press 1 to play the game" << endl
@@ -52,13 +57,12 @@ void show_menu()
     {
     case 1:
         Game_Type GT = select_game_type();
-        Player P = GM(GT);
-        RD.update_record(P, 1);
-        RD.show_records();
+        GM(GT);
+        show_records();
         break;
 
     case 2:
-        RD.show_records();
+        show_records();
         break;
 
     default:
