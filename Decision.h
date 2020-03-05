@@ -11,11 +11,12 @@ using namespace std;
 
 class Decision{
 
-protected:
-  Decision();
+
+
 public:
-  enum decision {split,steal};
-  void set_name(name);
+  Decision();
+  enum Decision {split,steal};
+  void set_name(string name);
   bool split_or_steal(int choice);
   string get_name();
   string player_name;

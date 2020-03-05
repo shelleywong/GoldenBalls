@@ -7,7 +7,7 @@
 using namespace std;
 
 Decision::Decision(){}
-void Decision::set_name(name){
+void Decision::set_name(string name){
 player_name=name;
 }
 
