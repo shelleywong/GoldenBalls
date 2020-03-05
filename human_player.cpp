@@ -5,7 +5,7 @@ Human_Player::Human_Player() {}
 Human_Player::Human_Player(string name) {
     _name = undefined;
 }
-void Human_Player::set_name( string name ) const {
+string Human_Player::set_name( string name ) const {
    _name = name;
 }
 Human_Player::Decision Human_Player::split_or_steal( Decision deal ) const {
