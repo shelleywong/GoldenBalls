@@ -6,33 +6,57 @@
 
 #include <iostream>
 #include "Game_Type.h"
-// #include "human_player.h"
-// #include "Computer_Player.h"
-// #include "Records.h"
+#include "human_player.h"
+#include "Computer_Player.h"
+#include "Records.h"
 
 using namespace std;
 
-int main()
+Game_Type select_game_type()
 {
-
-    Game_Type GT;
 
     int G_Type;
     cin >> G_Type;
 
+case 1:
+    GT = Game_Type::single;
+    return GT;
+    break;
+
+case 2:
+    GT = Game_Type::dual;
+    return GT;
+    break;
+
+default:
+    break;
+}
+
+void show_menu()
+{
+
+    Records RD;
+    Game GM;
+
     switch (G_Type)
     {
     case 1:
-        GT = Game_Type::single;
+        Game_Type GT = select_game_type();
+        GM(GT);
         break;
 
     case 2:
-        GT = Game_Type::dual;
+        RD.show_records();
         break;
 
     default:
         break;
     }
+}
+
+int main()
+{
+    show_menu();
 
     return 0;
 }
