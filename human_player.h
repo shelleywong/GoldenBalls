@@ -5,7 +5,7 @@
 class Human_Player {
   public:
     Human_Player();
-    void set_name() const;  
+    string set_name() const;  
     Decision split_or_steal() const;
     string get_name() const;
   private:
