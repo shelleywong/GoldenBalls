@@ -1,17 +1,18 @@
 #include <iostream>
 #include human_player.h
 using namespace std;
-HumanPlayer::HumanPlayer() {
-  pname = undefined;
-}
+HumanPlayer::HumanPlayer() {}
 HumanPlayer::HumanPlayer(string name) {
-    name = undefined;
+    _name = undefined;
 }
-void HumanPlayer::set_name() const {
-   return pname;
+void HumanPlayer::set_name( string name ) const {
+   _name = name;
 }
-unsigned HumanPlayer::split_or_steal() const {
-  pname = name;
+HumanPlayer::Decision HumanPlayer::split_or_steal( Decision deal ) const {
+  if( deal == "split")
+    return split;
+  else 
+    return steal;
 }
 string HumanPlayer::get_name() const {
   return pname;
