@@ -9,6 +9,7 @@
 #include "Human_Player.h"
 #include "Computer_Player.h"
 #include "Records.h"
+#include "Game.h"
 
 using namespace std;
 
