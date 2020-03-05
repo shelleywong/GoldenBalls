@@ -9,9 +9,6 @@ void Human_Player::set_name( string name ) const {
    _name = name;
 }
 Human_Player::Decision Human_Player::split_or_steal( Decision deal ) const {
-  if( deal == "split")
-    return deal;
-  else 
     return deal;
 }
 string Human_Player::get_name() const {
