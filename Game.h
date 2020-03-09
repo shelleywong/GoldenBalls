@@ -13,13 +13,10 @@
 
 class Game {
   public:
-    void Game(game_type Game_Type);  // set game type, play game
-
-  protected:
-    Game();   // Game constructor
+    Game(Game_Type);  // play game
 
   private:
-    vector<Player*> _players;   // list of players
+    std::vector<Player*> _players;   // list of players
 };
 
 #endif

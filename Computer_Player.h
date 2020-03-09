@@ -2,8 +2,9 @@
 #define COMPUTER_PLAYER_H_
 #include<string>
 #include "Player.h"
+#include "Decision.h"
 
-using namespace std;
+using std::string;
 
 class Computer_Player : public Player{
 	private:
@@ -11,7 +12,7 @@ class Computer_Player : public Player{
 
 	public:
 		void set_name();
-		int split_or_steal();
+		Decision split_or_steal();
 		string get_name();
 };
 #endif

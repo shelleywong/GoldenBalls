@@ -13,30 +13,29 @@
 
 using std::cout;
 using std::endl;
+using std::cin;
 
 Game_Type select_game_type()
 {
-    cout << "1. Press 1 for Single Player" << endl
-         << "2. Press 2 for Dual Player" << endl;
-    int G_Type;
-    cin >> G_Type;
-
+    int choice;
     do{
-        switch (G_Type)
+        cout << "1. Press 1 for Single Player" << endl
+             << "2. Press 2 for Dual Player" << endl;
+        cin >> choice;
+
+        if( choice != 1 && choice != 2 )
         {
-        case 1:
-            GT = Game_Type::single;
-            return GT;
-
-        case 2:
-            GT = Game_Type::dual;
-            return GT;
-
-        default:
             std::cout<<"Please choose 1 or 2\n";
-            break;
         }
-    }while( G_Type != 1 && G_Type != 2 );
+    }while( choice != 1 && choice != 2 );
+
+    if( choice == 1 )
+    {
+        return Game_Type::single;
+    }
+    else{
+        return Game_Type::dual;
+    }
 }
 
 void show_records()
@@ -49,36 +48,40 @@ void show_menu()
 {
 
     Game* game;
-
-    cout << "1. Press 1 to play the game" << endl
-         << "2. Press 2 to see records" << endl
-         << "3. Press 3 to quit" << endl;
-
     int G_Menu;
     bool quit = false;
-    cin >> G_Menu;
+    
+    do
+    {
+        cout << "1. Press 1 to play the game" << endl
+             << "2. Press 2 to see records" << endl
+             << "3. Press 3 to quit" << endl;
 
-    do{
-        switch (G_Menu)
+        
+        cin >> G_Menu;
+
+        if( G_Menu < 1 || G_Menu > 3)
         {
-            case 1:
-                Game_Type GT = select_game_type();
-                game = new Game(GT);
-                break;
-
-            case 2:
-                show_records();
-                break;
-            
-            case 3:
-                quit = true;
-
-            default:
-                cout<<"You have entered an incorrect entry."<<endl; 
-                break;
+            cout<<"You have entered an incorrect entry."<<endl; 
         }
     }while( G_Menu < 1 || G_Menu > 3);
 
+    Game_Type type;
+    switch (G_Menu)
+    {
+        case 1:
+            type = select_game_type();
+            game = new Game(type);
+            break;
+
+        case 2:
+            show_records();
+            break;
+        
+        case 3:
+            quit = true;
+            break;
+    }
 }
 
 int main()

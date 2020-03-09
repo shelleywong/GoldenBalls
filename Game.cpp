@@ -10,12 +10,9 @@
 #include "Decision.h"
 #include "Records.h"
 #include <iostream>
+#include <vector>
 using std::cout;
 using std::endl;
-
-Game::Game(){
-  cout<<"Welcome to Golden Balls"<<endl;
-}
 
 /*
  * @brief             Plays the game and changes records of all players
@@ -26,14 +23,17 @@ Game::Game(){
  * players' names and the players' choice (split or steal). Then the winner
  * is determined (4 possible cases) and the records are updated.
  */
-void Game::Game(game_type Game_Type){
+Game::Game(Game_Type type)
+{
+  _players.resize(2);
+
   // Set players based on Game Type
-  switch(Game_Type){
-    case "single":
+  switch(type){
+    case Game_Type::single:
       _players[0] = new Human_Player();
       _players[1] = new Computer_Player();
       break;
-    case "dual":
+    case Game_Type::dual:
       _players[0] = new Human_Player();
       _players[1] = new Human_Player();
       break;
@@ -41,29 +41,32 @@ void Game::Game(game_type Game_Type){
 
   // Set names of players based on Game Type
   // Players all choose to split or steal
-  vector<Decision*> decision_list;
+  Decision decision_list[2];
   for(int i = 0; i < _players.size(); i++){
     // Set player's name
     _players[i]->set_name();
     // Player makes decision
-    decision_list[i] = _players[i]->split_or_steal();
+    decision_list[i] = _players[i]->split_or_steal(); 
   }
 
+  Records records = Records::instance();
   // Decide who won and update records
-  if(decision_list[0] == "steal" && decision_list[1] == "steal"){
-    Records::instance()->update_record(_players[0]->get_name(), 0);
-    Records::instance()->update_record(_players[1]->get_name(), 0);
+  if(decision_list[0] == Decision::steal && decision_list[1] == Decision::steal){
+    records.update_record(_players[0]->get_name(), false);
+    records.update_record(_players[1]->get_name(), false);
   }
-  else if(decision_list[0] == "split" && decision_list[1] == "steal"){
-    Records::instance()->update_record(_players[0]->get_name(), 1);
-    Records::instance()->update_record(_players[1]->get_name(), 0);
+  else if(decision_list[0] == Decision::split && decision_list[1] == Decision::steal){
+    records.update_record(_players[0]->get_name(), true);
+    records.update_record(_players[0]->get_name(), true);
+    records.update_record(_players[1]->get_name(), false);
   }
-  else if(decision_list[0] == "steal" && decision_list[1] == "split"){
-    Records::instance()->update_record(_players[0]->get_name(), 0);
-    Records::instance()->update_record(_players[1]->get_name(), 1);
+  else if(decision_list[0] == Decision::steal && decision_list[1] == Decision::split){
+    records.update_record(_players[0]->get_name(), false);
+    records.update_record(_players[1]->get_name(), true);
+    records.update_record(_players[1]->get_name(), true);
   }
-  else{
-    Records::instance()->update_record(_players[0]->get_name(), 1);
-    Records::instance()->update_record(_players[1]->get_name(), 1);
+  else{ // both split
+    records.update_record(_players[0]->get_name(), true);
+    records.update_record(_players[1]->get_name(), true);
   }
 }

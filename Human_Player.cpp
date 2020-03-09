@@ -8,19 +8,18 @@ using std::endl;
 
 Human_Player::Human_Player() 
 {
-  _name = "";
+  _name = "Anonymous";
 }
 
 void Human_Player::set_name()
 {
   cout<<"Enter player name: "<<endl;
-  cin>>name;
-  _name = name;
+  cin>>_name;
 }
 
 Decision Human_Player::split_or_steal()
 {
-  char menu;
+  int menu;
   do
   {
     cout<<"Choose your move:\n"
@@ -36,14 +35,14 @@ Decision Human_Player::split_or_steal()
 
   if( menu == 1)
   {
-      return Decision:steal;
+      return Decision::steal;
   }
   else
   {
-      return Decision:split;
+      return Decision::split;
   }
 }
 
-std::string Human_Player::get_name() const {
+std::string Human_Player::get_name(){
     return _name;
 }

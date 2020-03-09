@@ -6,7 +6,7 @@ void Computer_Player :: set_name(){
 	_name = "Computer";
 }
 
-int Computer_Player :: split_or_steal()
+Decision Computer_Player :: split_or_steal()
 {
 	return Decision::steal;
 }
