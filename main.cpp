@@ -44,12 +44,9 @@ void show_records()
     display.show_records();
 }
 
-void show_menu()
+int get_menu_choice()
 {
-
-    Game* game;
     int G_Menu;
-    bool quit = false;
     
     do
     {
@@ -66,26 +63,35 @@ void show_menu()
         }
     }while( G_Menu < 1 || G_Menu > 3);
 
-    Game_Type type;
-    switch (G_Menu)
-    {
-        case 1:
-            type = select_game_type();
-            game = new Game(type);
-            break;
-
-        case 2:
-            show_records();
-            break;
-        
-        case 3:
-            quit = true;
-            break;
-    }
+    return G_Menu;
 }
 
 int main()
 {
-    show_menu();
+    int choice;
+    bool quit = false;
+    Game* game;
+
+    do{
+        choice = get_menu_choice();
+    
+        Game_Type type;
+        switch (choice)
+        {
+            case 1:
+                type = select_game_type();
+                game = new Game(type);
+                break;
+
+            case 2:
+                show_records();
+                break;
+            
+            case 3:
+                quit = true;
+                break;
+        }
+    }while( !quit );
+
     return 0;
 }
