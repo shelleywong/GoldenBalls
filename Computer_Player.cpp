@@ -1,15 +1,15 @@
 #include "Computer_Player.h"
+#include "Decision.h"
 
-void Computer_Player :: set_name(string name){
-	_name = name;
+void Computer_Player :: set_name(){
+	_name = "Computer";
 }
 
 int Computer_Player :: split_or_steal()
 {
-	return 1;
+	return Decision::steal;
 }
 
 string Computer_Player :: get_name(){
 	return _name;
 }
-

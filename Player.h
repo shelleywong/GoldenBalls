@@ -12,3 +12,5 @@ class Player
         virtual Decision split_or_steal() = INTERFACE_FUNCTION;
         virtual string get_name() = INTERFACE_FUNCTION;        
 };
+
+#endif

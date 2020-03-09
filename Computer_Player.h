@@ -9,10 +9,10 @@ using namespace std;
 
 class Computer_Player : public Player{
 	private:
-		string _name = "Computer";
+		string _name;
 
 	public:
-		void set_name(string name);
+		void set_name();
 		int split_or_steal();
 		string get_name();
 };
