@@ -10,9 +10,9 @@ class Human_Player: public Player {
     Human_Player();
     void set_name();  
     Decision split_or_steal();
-    string get_name();
+    std::string get_name();
   private:
-    string _name;
+    std::string _name;
 };
 
 #endif

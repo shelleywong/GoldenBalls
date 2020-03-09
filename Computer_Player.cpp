@@ -1,3 +1,4 @@
+#include <string>
 #include "Computer_Player.h"
 #include "Decision.h"
 
@@ -10,6 +11,6 @@ int Computer_Player :: split_or_steal()
 	return Decision::steal;
 }
 
-string Computer_Player :: get_name(){
+std::string Computer_Player :: get_name(){
 	return _name;
 }

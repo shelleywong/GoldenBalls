@@ -1,7 +1,5 @@
 #ifndef COMPUTER_PLAYER_H_
 #define COMPUTER_PLAYER_H_
-
-#include<iostream>
 #include<string>
 #include "Player.h"
 

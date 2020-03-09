@@ -44,6 +44,6 @@ Decision Human_Player::split_or_steal()
   }
 }
 
-string Human_Player::get_name() const {
+std::string Human_Player::get_name() const {
     return _name;
 }
